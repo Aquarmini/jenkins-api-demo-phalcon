@@ -9,15 +9,23 @@
 namespace App\Common\Clients;
 
 use Xin\Traits\Common\InstanceTrait;
+use JenkinsKhan\Jenkins;
 
 class JenkinsClient
 {
     use InstanceTrait;
 
-    public $jenkins;
+    /** @var Jenkins */
+    public $client;
 
-    public function __construct()
+    private function __construct()
     {
+        $url = di('config')->jenkins->url;
+        $this->client = new Jenkins($url);
+    }
 
+    public function __call($name, $arguments)
+    {
+        return $this->client->$name(...$arguments);
     }
 }

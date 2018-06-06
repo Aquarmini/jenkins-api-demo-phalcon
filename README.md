@@ -30,3 +30,16 @@
 - [kafka](https://github.com/Aquarmini/kafka-demo-phalcon)
 - [机器学习](https://github.com/Aquarmini/ml-demo-phalcon)
 - [正则匹配](https://github.com/Aquarmini/regex-demo-phalcon)
+
+## Jenkins API
+~~~php
+<?php
+use App\Common\Clients\JenkinsClient;
+
+$jenkins = JenkinsClient::getInstance();
+
+$jenkins->client->enableCrumbs();
+$res = $jenkins->client->launchJob($name, ['name' => 'Agnes']);
+
+// 当没有传入name，比如传入了name2，name的值为Jenkins配置的默认值
+~~~

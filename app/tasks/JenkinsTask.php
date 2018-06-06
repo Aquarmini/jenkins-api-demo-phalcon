@@ -6,7 +6,6 @@ use Xin\Cli\Color;
 
 class JenkinsTask extends Task
 {
-
     public function mainAction()
     {
         echo Color::head('Help:') . PHP_EOL;
@@ -16,8 +15,8 @@ class JenkinsTask extends Task
         echo Color::colorize('  php run jenkins:[action]', Color::FG_LIGHT_GREEN) . PHP_EOL . PHP_EOL;
 
         echo Color::head('Actions:') . PHP_EOL;
+        echo Color::colorize('  view            显示所有view', Color::FG_LIGHT_GREEN) . PHP_EOL;
         echo Color::colorize('  view:jobs       显示对应的JOB列表', Color::FG_LIGHT_GREEN) . PHP_EOL;
+        echo Color::colorize('  job:launch      发布任务', Color::FG_LIGHT_GREEN) . PHP_EOL;
     }
-
 }
-
